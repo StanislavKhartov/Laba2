@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 
@@ -23,12 +24,13 @@ int main()
     double devisor = 1;
     long double sum = 0;
     long double square = argument * argument;
-    while (fabsl(term) > pow(10, -k))
+    long double bound = pow(10, -k) / 2;
+    while (fabsl(term) > bound)
     {
         sum = sum + term;
         devisor = devisor + 2;
         term = -term * square / devisor / (devisor - 1);
     }
-    cout << sum << " " << sin(argument)/argument;
+    cout << setprecision(50) << sum << "\n" << sin(argument)/argument;
     return 0;
 }
